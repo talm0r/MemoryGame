@@ -1,0 +1,10 @@
+body {
+    background-image:url('https://reullab.gatech.edu/wp-content/uploads/2017/11/404-background-img-1.jpg');
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+button {
+    margin-top:150px;
+}

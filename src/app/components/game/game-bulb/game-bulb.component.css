@@ -1,0 +1,47 @@
+button {
+    width: 90px;
+    height: 90px;
+    border: 4px solid;
+    border-radius:50px;
+   margin:10px;
+}
+.green {
+    border-color: green;
+}
+
+.green:active, .green.active {
+    background-color: green;
+}
+
+.blue {
+    border-color: blue;
+}
+.blue:active, .blue.active {
+    background-color: blue;
+}
+
+.red {
+    border-color: red;
+}
+.red:active, .red.active {
+    background-color: red;
+}
+
+.yellow {
+    border-color: yellow;
+}
+.yellow:active ,.yellow.active {
+    background-color: yellow;
+}
+.black:active ,.black.active {
+    background-color: black;
+}
+.brown:active ,.brown.active {
+    background-color: brown;
+}
+.black {
+    border-color:black;
+}
+.brown {
+    border-color:brown;
+}

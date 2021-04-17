@@ -1,0 +1,10 @@
+.text-center {
+    text-align:center;
+}
+input {
+    margin-top:10px;
+    height:30px;
+}
+button {
+    margin-top:20px;
+}

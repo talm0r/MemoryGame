@@ -1,0 +1,33 @@
+.gameOver {
+    color: white;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    background: black;
+    -webkit-transition: all 800ms;
+    -moz-transition:    all 800ms;
+    -o-transition:      all 800ms; 
+    transition:         all 800ms;    
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+}
+.gameOver.zoom {
+    transform: scale(1);
+}
+mat-sidenav-container {
+    height: 100%;
+}
+mat-sidenav, mat-sidenav-content {
+    padding: 16px;
+}
+mat-sidenav{
+    background-color:white;
+    width:280px;
+} 
+td {
+    text-align: center;
+    text-transform: capitalize;
+}

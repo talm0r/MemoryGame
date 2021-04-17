@@ -1,0 +1,73 @@
+<!--begin::Sidenav container-->
+<mat-sidenav-container>
+    <!--begin::Sidenav opened content-->
+    <mat-sidenav [(opened)]="opened" mode="side">
+      <!--begin::Player name and signout link -->
+      <h4>
+        Not {{ playerName }} ?
+        <button mat-raised-button color="accent" [routerLink]="['/']">
+          Signout
+        </button>
+      </h4>
+      <!--end::Player name and signout link -->
+      <!--start::Highscore table -->
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Score</th>
+        </tr>
+        <tr *ngFor="let score of scores | keyvalue: keyDescOrder; let i = index">
+          <td>{{ score.value.name }}</td>
+          <td>{{ score.value.date | date: "short" }}</td>
+          <td>{{ score.value.score }}</td>
+        </tr>
+      </table>
+      <!--end::Highscore table -->
+    </mat-sidenav>
+    <!--end::Sidenav opened content-->
+    <!--begin::Rest of sidenav content-->
+    <mat-sidenav-content>
+      <!--begin::Game Container-->
+      <div class="flex flex-center flex-col">
+        <!--begin::Player details\Start game button\High Score hidden div-->
+        <h1>Welcome {{ playerName }}</h1>
+        <div
+          class="gameOver flex flex-center flex-col"
+          [ngClass]="{ zoom: gameOver }"
+        >
+          Game Over
+          <div *ngIf="newHighScore">New high score!</div>
+        </div>
+        <button mat-raised-button color="primary" (click)="runGameButton()">
+          Start Game
+        </button>
+        <!--end::Player details\Start game button\High Score hidden div-->
+        <!--begin::Iterator for building color bulbs (logic is equal number of bulbs on each row(if we want to have 4,6 or even 10,12 bulbs))-->
+        <ng-container *ngFor="let item of colorsArray; let i = index">
+          <tr *ngIf="i % (colorsArray.length / 2) == 0">
+            <ng-container *ngFor="let item of colorsArray; let j = index">
+              <td *ngIf="j >= i && j < i + colorsArray.length / 2">
+                <app-game-bulb
+                  color="{{ item }}"
+                  (chosenBulb)="playerGuess($event)"
+                ></app-game-bulb>
+              </td>
+            </ng-container>
+          </tr>
+        </ng-container>
+        <!--end::Iterator for building color bulbs (logic is equal number of bulbs on each row(if we want to have 4,6 or even 10,12 bulbs))-->
+        <!--begin::Player score, high score and button to open sidenav of all time highscores-->
+        <h4>Current Game Score: {{ score * 10 }}</h4>
+        <h4>High Score: {{ highScore * 10 }}</h4>
+        <button mat-raised-button color="accent" (click)="opened = !opened">
+          All Time Scores
+        </button>
+        <!--end::Player score, high score and button to open sidenav of all time highscores-->
+      </div>
+      <!--end::Game Container-->
+    </mat-sidenav-content>
+    <!--end::Rest of sidenav content-->
+  </mat-sidenav-container>
+  <!--End::Sidenav container-->
+  
